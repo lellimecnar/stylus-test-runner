@@ -1,6 +1,6 @@
 {
   "name": "stylus-test-runner",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Stylus syntax adaptor for testing your stylus source code",
   "main": "index.js",
   "author": "Tim Gleeson",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "mocha": "~1.17.1",
-    "stylus": "~0.42.0",
+    "stylus": "^0.50.0",
     "clean-css": "~2.1.1",
     "should": "~3.1.2",
     "lodash": "~2.4.1",
