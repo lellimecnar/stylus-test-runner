@@ -12,6 +12,11 @@ var _        = require('lodash')
 var assert   = require('assert')
 require('should')
 
+var cleanCSSOptions = {
+    advanced: false,
+    aggressiveMerging: false,
+  };
+
 
 //
 // UTILS
@@ -49,10 +54,7 @@ function extractTestFromString(string) {
 
   if (test.match(/@expect/)) {
     var stylusAndCss = test.split(/.*@expect.*/).map(trimNewlines)
-      , CleanCSS = new cleanCSS({
-          advanced: false,
-          aggressiveMerging: false,
-        })
+      , CleanCSS = new cleanCSS(cleanCSSOptions)
       , expectedCss = CleanCSS.minify(stylusAndCss[1]).styles
 
     return {
@@ -173,12 +175,12 @@ function stylus(string, config) {
 
 
 function renderStylus(stylusCode, config, callback) {
-  var CleanCSS = new cleanCSS()
+  var CleanCSS = new cleanCSS(cleanCSSOptions)
 
   stylus(stylusCode, config)
     .render(function(err, cssFromStylus) {
       if (err) throw err
-      callback(CleanCSS.minify(cssFromStylus))
+      callback(CleanCSS.minify(cssFromStylus).styles)
     })
 }
 
