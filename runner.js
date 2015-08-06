@@ -49,8 +49,11 @@ function extractTestFromString(string) {
 
   if (test.match(/@expect/)) {
     var stylusAndCss = test.split(/.*@expect.*/).map(trimNewlines)
-      , CleanCSS = new cleanCSS()
-      , expectedCss = CleanCSS.minify(stylusAndCss[1])
+      , CleanCSS = new cleanCSS({
+          advanced: false,
+          aggressiveMerging: false,
+        })
+      , expectedCss = CleanCSS.minify(stylusAndCss[1]).styles
 
     return {
       assertion: assertion,

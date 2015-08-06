@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "mocha": "~1.17.1",
-    "stylus": "^0.50.0",
-    "clean-css": "~2.1.1",
+    "stylus": "^0.52.0",
+    "clean-css": "^3.3.8",
     "should": "~3.1.2",
     "lodash": "~2.4.1",
     "glob": "~3.2.8"
