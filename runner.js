@@ -170,6 +170,13 @@ function stylus(string, config) {
     if (config[option])  _.each(arrayify(config[option]), thisStylus[option], thisStylus)
   })
 
+  // Allow to define global variables/functions from JS
+  if (config.define) {
+      _.each(config.define, function(val, key) {
+          thisStylus.define(key, val);
+      });
+  }
+
   return thisStylus;
 }
 
